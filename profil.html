@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profil Diri - Amelia Amanda</title>
+
+    <!-- jQuery dari CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        :root {
+            --pink: #e98aa8;
+            --dark-pink: #d96f91;
+            --soft-pink: #fff0f5;
+            --lighter-pink: #fff8fa;
+            --ink: #3f3540;
+            --muted: #6f6670;
+            --line: #ead5dc;
+            --paper: #ffffff;
+            --bg: #fff6f9;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        /* KOTAK UTAMA */
+        .page {
+            width: min(900px, calc(100% - 32px));
+            margin: 28px auto;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(180, 90, 120, 0.12);
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #e98aa8, #f3a9bd);
+            color: white;
+            padding: 25px 30px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        /* NAVIGASI */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 13px 30px;
+            background: var(--soft-pink);
+            border-bottom: 1px solid #f2d4df;
+        }
+
+        nav a {
+            color: var(--dark-pink);
+            font-weight: bold;
+            text-decoration: none;
+            padding: 5px 9px;
+            border-radius: 8px;
+        }
+
+        nav a:hover {
+            background: #ffdce7;
+            text-decoration: underline;
+        }
+
+        /* MAIN */
+        main {
+            padding: 28px 30px 35px;
+        }
+
+        section {
+            margin-bottom: 32px;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 21px;
+            color: #51404a;
+        }
+
+        /* PROFIL */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            object-fit: cover;
+            background: #f3d6e0;
+            border: 2px solid #efb7c8;
+            box-shadow: 0 5px 12px rgba(210, 100, 135, 0.15);
+        }
+
+        /* HOBI */
+        .hobby-list {
+            padding-left: 22px;
+        }
+
+        .hobby-list li {
+            margin-bottom: 5px;
+        }
+
+        /* TABEL */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            border: 1px solid var(--line);
+            text-align: left;
+        }
+
+        th {
+            background: #df83a2;
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #fff8fa;
+        }
+
+        tbody tr:hover {
+            background: #ffeaf1;
+        }
+
+        /* LINK */
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .button-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 40px;
+            padding: 0 18px;
+
+            border-radius: 20px;
+            background: #e98aa8;
+            color: white;
+
+            font-weight: bold;
+            text-decoration: none;
+
+            transition: 0.2s;
+        }
+
+        .button-link:hover {
+            background: #d96f91;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(210, 100, 135, 0.2);
+        }
+
+        /* TOMBOL JADWAL */
+        .schedule-button {
+            margin-top: 15px;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            background: #51404a;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .schedule-button:hover {
+            background: #3f3540;
+        }
+
+        /* FORM KONTAK */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--pink);
+        }
+
+        .submit-button {
+            width: fit-content;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: #e98aa8;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background: #d96f91;
+        }
+
+        #form-message {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #51404a;
+            color: white;
+            padding: 16px 30px;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+
+            .page {
+                width: 100%;
+                margin: 0;
+                border: 0;
+                border-radius: 0;
+            }
+
+            header,
+            nav,
+            main,
+            footer {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-photo {
+                width: 180px;
+                height: 180px;
+            }
+
+            table {
+                font-size: 13px;
+            }
+
+            th,
+            td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!-- HEADER -->
+        <header>
+            <h1>Amelia Amanda</h1>
+        </header>
+
+        <!-- NAVIGASI -->
+        <nav aria-label="Navigasi utama">
+            <a href="#tentang">Tentang</a>
+            <a href="#jadwal">Jadwal</a>
+            <a href="#tautan">Media Sosial</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+
+        <main>
+
+            <!-- TENTANG SAYA -->
+            <section id="tentang">
+
+                <div class="profile-grid">
+
+                    <img
+                        class="profile-photo"
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'%3E%3Crect width='360' height='360' fill='%23c9d7e9'/%3E%3Ccircle cx='180' cy='130' r='58' fill='%23849cc2'/%3E%3Cpath d='M74 315c16-68 63-104 106-104s90 36 106 104' fill='%23849cc2'/%3E%3C/svg%3E"
+                        alt="Ilustrasi foto profil Amelia Amanda"
+                    >
+
+                    <div>
+                        <h2>Tentang Saya</h2>
+
+                        <p>
+                            Saya adalah mahasiswa  Program Studi Rekayasa Perangkat Lunak
+                            Telkom University Surabaya.
+                        </p>
+
+                        <p>
+                            Saya juga senang mempelajari hal baru dan
+                            mengembangkan kemampuan melalui berbagai proyek.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h2>Hobi</h2>
+
+                <ul class="hobby-list">
+                    <li>Mencoba hal baru</li>
+                    <li>Mempelajari teknologi</li>
+                    <li>Membuat dan mengembangkan website</li>
+                    <li>Public speaking</li>
+                </ul>
+
+            </section>
+
+
+            <!-- JADWAL -->
+            <section id="jadwal">
+
+                <h2>Jadwal Kuliah</h2>
+
+                <div id="schedule-container">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hari</th>
+                                <th>Mata Kuliah</th>
+                                <th>Jam</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td rowspan="3">Senin</td>
+                                <td>Penjaminan Mutu Perangkat Lunak</td>
+                                <td>07.30 - 10.30</td>
+                            </tr>
+
+                            <tr>
+                                <td>Manajemen Proyek</td>
+                                <td>10.30 - 13.30</td>
+                            </tr>
+
+                            <tr>
+                                <td>Perancangan dan Pemrograman Web</td>
+                                <td>15.30 - 18.30</td>
+                            </tr>
+
+                            <tr>
+                                <td rowspan="2">Selasa</td>
+                                <td>Pemrograman Perangkat Bergerak</td>
+                                <td>10.30 - 13.30</td>
+                            </tr>
+
+                            <tr>
+                                <td>Perancangan dan Pemrograman Web</td>
+                                <td>14.30 - 17.30</td>
+                            </tr>
+
+                            <tr>
+                                <td rowspan="2">Rabu</td>
+                                <td>Wawasan Global TIK</td>
+                                <td>08.30 - 10.30</td>
+                            </tr>
+
+                            <tr>
+                                <td>Kewirausahaan</td>
+                                <td>15.30 - 17.30</td>
+                            </tr>
+
+                            <tr>
+                                <td rowspan="3">Kamis</td>
+                                <td>Pengalaman Pengguna (UX)</td>
+                                <td>07.30 - 10.30</td>
+                            </tr>
+
+                            <tr>
+                                <td>Pemrograman Perangkat Bergerak</td>
+                                <td>12.30 - 15.30</td>
+                            </tr>
+
+                            <tr>
+                                <td>Teknologi Perangkat Lunak untuk Masyarakat</td>
+                                <td>15.30 - 17.30</td>
+                            </tr>
+
+                            <tr>
+                                <td>Jumat</td>
+                                <td>Kewarganegaraan</td>
+                                <td>09.30 - 11.30</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <!-- Tombol JavaScript -->
+                <button
+                    type="button"
+                    id="toggleSchedule"
+                    class="schedule-button">
+                    Sembunyikan Jadwal
+                </button>
+
+            </section>
+
+
+            <!-- MEDIA SOSIAL -->
+            <section id="tautan">
+
+                <h2>Media Sosial</h2>
+
+                <p>
+                    Kamu dapat melihat profil dan proyek saya melalui:
+                </p>
+
+                <div class="links">
+
+                    <a
+                        class="button-link"
+                        href="https://www.linkedin.com/in/melia-amanda-02aa3232b/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+
+                    <a
+                        class="button-link"
+                        href="https://github.com/meliaamanda"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        GitHub
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- FORM KONTAK -->
+            <section id="kontak">
+
+                <h2>Kontak</h2>
+
+                <p>
+                    Silakan isi form berikut untuk menghubungi saya.
+                </p>
+
+                <form id="contactForm" class="contact-form">
+
+                    <div>
+                        <label for="nama">Nama</label>
+                        <input
+                            type="text"
+                            id="nama"
+                            name="nama"
+                            placeholder="Masukkan nama"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Masukkan email"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="pesan">Pesan</label>
+                        <textarea
+                            id="pesan"
+                            name="pesan"
+                            placeholder="Tulis pesan kamu"
+                        ></textarea>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="submit-button">
+                        Kirim
+                    </button>
+
+                    <p id="form-message"></p>
+
+                </form>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer>
+            <p>&copy; 2026 Amelia Amanda. Semua hak dilindungi.</p>
+        </footer>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // 1. Tombol menampilkan/menyembunyikan jadwal
+
+        const toggleButton = document.getElementById("toggleSchedule");
+        const scheduleContainer = document.getElementById("schedule-container");
+
+        toggleButton.addEventListener("click", function () {
+
+            if (scheduleContainer.style.display === "none") {
+
+                scheduleContainer.style.display = "block";
+                toggleButton.textContent = "Sembunyikan Jadwal";
+
+            } else {
+
+                scheduleContainer.style.display = "none";
+                toggleButton.textContent = "Tampilkan Jadwal";
+
+            }
+
+        });
+
+
+        // 2. Validasi Form
+
+        const contactForm = document.getElementById("contactForm");
+        const formMessage = document.getElementById("form-message");
+
+        contactForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const nama = document.getElementById("nama").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const pesan = document.getElementById("pesan").value.trim();
+
+            if (nama === "") {
+
+                formMessage.textContent = "Nama wajib diisi.";
+                return;
+
+            }
+
+            if (email === "") {
+
+                formMessage.textContent = "Email wajib diisi.";
+                return;
+
+            }
+
+            if (!email.includes("@")) {
+
+                formMessage.textContent = "Format email tidak valid.";
+                return;
+
+            }
+
+            if (pesan === "") {
+
+                formMessage.textContent = "Pesan wajib diisi.";
+                return;
+
+            }
+
+            formMessage.textContent = "Form berhasil dikirim!";
+
+            contactForm.reset();
+
+        });
+
+
+        // 3. jQuery - efek pada heading  
+
+        $(document).ready(function () {
+
+            $("h2").hide().fadeIn(1000);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
