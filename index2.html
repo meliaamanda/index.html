@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>aplikasi catatan tugas</h1>
+            <p1 class="subtitle"> contoh javascript</p1>
+        </header>
+
+        <form id="todo-form">
+            <input 
+            type="text"
+            id="todo-input"
+            placeholder="tulis kegiatan baru disini"
+            autocomplete="off">
+
+            <button type="submit" id="add-btn">tambah</button>
+        </form>
+
+        <div class="statur-bar">
+            <span>Total: <strong id="total-count">0</strong></span>
+            <span>Selesai: <strong id="complatedCount">0</strong></span>
+        </div>
+
+        <ul id="todo-list"></ul>
+
+        <p id="empty-message" class="empty-message">belum ada tugas, tambahkan tugas</p>
+
+    </div>
+
+    <script src="index2.js"></script>
+    
+</body>
+</html>
