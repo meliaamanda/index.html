@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body{
+            background-color: beige;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        header{
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #dashboard{
+            background: #007bff;
+            color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        article{
+            background: #fff;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        form{
+            background:  #fff;
+            border-radius: 6px;
+            margin-top: 1rem;
+            padding:  1.5rem;
+        }
+
+        label{
+            display: block;
+            font-weight: 500;
+        }
+
+        input{
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        button{
+            background: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+    <!--  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     -->
+</head>
+
+
+<body>
+    <!--- header & navigasi -->
+    <header>
+        <div>
+            <div>
+                <div>
+                    <h1>Studyflow</h1>
+                    <p>Personal academic task management</p>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="">Dashboard</a></li>
+                    <li><a href="">Ringkasan</a></li>
+                    <li><a href="">Daftar Tugas</a></li>
+                    <li><a href="">Tambah Tugas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Dashboard -->
+        <section id="dashboard">
+            <div>
+                <span>Semester Ganjil 2026/2027</span>
+                <h2>kelola aktivitas akademik terstruktur</h2>
+                <p>Studyflow membantu mahasisswa mengawasi tugas praktikum</p>
+
+                <div>
+                    <a href="">Catat Tugas Baru</a>
+                    <a href="">Lihat Semua Tugas</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ringkasan -->
+        <section id="task-summary">
+            <div>
+                <h2>Status Belajar</h2>
+            </div>
+
+            <div>
+                <article>
+                    <h3>Total Tugas</h3>
+                </article>
+
+                <article>
+                    <h3>Prioritas Tinggi</h3>
+                </article>
+
+                <article>
+                    <h3>Sedang Berjalan</h3>
+                </article>
+
+                <article>
+                    <h3>Sudah selesai</h3>
+                </article>
+            </div>
+        </section>
+
+        <!-- List Tugas -->
+         <section>
+            <div>
+                <div>
+                    <h2>Daftar Tugas Kuliah</h2>
+                    <p>Aktivitas berjalan</p>
+                </div>
+            </div>
+
+            <div>
+                <article>
+                    <h3>Jurnal PemWeb</h3>
+                    <p>implementasi HTML</p>
+                </article>
+
+                <article>
+                    <h3>Basis Data</h3>
+                    <p>ERD</p>
+                </article>
+            </div>
+         </section>
+
+        <!--- add task form --->
+          <section id="add-tasks">
+            <div>
+                <h2>Tambah tugas akademik baru</h2>
+                <p>catet tugas anda</p>
+            </div>
+
+            <form action="">
+                <!-- judul -->
+                <div>
+                    <label for="">Nama Tugas</label>
+                    <input type="text">
+                </div>
+
+                <!-- baris mata kuliah -->
+                <div>
+                    <label for="">Mata kuliah</label>
+                    <input type="text">
+                </div>
+
+                <div>
+                    <button>Simpan Tugas</button>
+                </div>
+            </form>
+          </section>
+
+    </main>
+</body>
+
+</html>
